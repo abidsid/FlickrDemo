@@ -62,40 +62,40 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(platform(libs.androidx.compose.bom))
-    implementation (libs.androidx.lifecycle.viewmodel.ktx)
-    implementation (libs.androidx.lifecycle.runtime.ktx.v260)   // This is important for lifecycle-related utilities
-    implementation (libs.androidx.activity.compose.v170)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx.v260)   // This is important for lifecycle-related utilities
+    implementation(libs.androidx.activity.compose.v170)
 
     // Compose UI
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.tooling.preview)
 //    kapt(libs.hilt.compiler)
     // Compose Material
-    implementation (libs.ui)
-    implementation (libs.androidx.material.v176)
-    implementation (libs.androidx.lifecycle.viewmodel.compose)
-    implementation (libs.androidx.hilt.navigation.compose.v120)
-    implementation (libs.androidx.paging.compose.v335)
-    implementation (libs.androidx.navigation.compose.v285)
+    implementation(libs.ui)
+    implementation(libs.androidx.material.v176)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.hilt.navigation.compose.v120)
+    implementation(libs.androidx.paging.compose.v335)
+    implementation(libs.androidx.navigation.compose.v285)
 //    implementation (libs.androidx.hilt.lifecycle.viewmodel)
-    implementation (libs.androidx.foundation.v176)
-    implementation (libs.androidx.material3.v131)
+    implementation(libs.androidx.foundation.v176)
+    implementation(libs.androidx.material3.v131)
     implementation(libs.coil.image.load)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-
+    implementation(libs.coil.network.okhttp)
     // Retrofit
-    implementation (libs.retrofit)
+    implementation(libs.retrofit)
     // Gson Converter (for JSON to POJO conversion)
-    implementation (libs.converter.gson)
+    implementation(libs.converter.gson)
     // OkHttp (for logging and network requests)
-    implementation (libs.okhttp)
-    implementation (libs.logging.interceptor)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 
     // Coroutine support (if you're using Kotlin Coroutines)
-    implementation (libs.adapter.rxjava2) // if you're using RxJava
-    implementation (libs.retrofit2.adapter.rxjava3) // if you're using RxJava3
-    implementation (libs.converter.moshi) // If you're using Moshi
+    implementation(libs.adapter.rxjava2) // if you're using RxJava
+    implementation(libs.retrofit2.adapter.rxjava3) // if you're using RxJava3
+    implementation(libs.converter.moshi) // If you're using Moshi
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

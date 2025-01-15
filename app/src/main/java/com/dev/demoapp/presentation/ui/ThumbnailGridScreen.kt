@@ -1,9 +1,6 @@
 package com.dev.demoapp.presentation.ui
-import android.os.Build
-import android.os.StrictMode
-import android.os.StrictMode.ThreadPolicy
+
 import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,32 +20,26 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
-import coil3.imageLoader
-import coil3.request.ImageRequest
 import com.dev.demoapp.R
 import com.dev.demoapp.data.model.Items
 import com.dev.demoapp.presentation.viewmodel.ThumbnailViewModel
 
 @Composable
 fun ThumbnailGridScreen(viewModel: ThumbnailViewModel = viewModel()) {
-   /* val viewModel: ThumbnailViewModel = viewModel(
-        factory = ThumbnailViewModelFactory(repository)  // Pass the required repository
-    )*/
+    /* val viewModel: ThumbnailViewModel = viewModel(
+         factory = ThumbnailViewModelFactory(repository)  // Pass the required repository
+     )*/
     val thumbnails by viewModel.thumbnails.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
-
-
 
     Column(modifier = Modifier.fillMaxSize()) {
         SearchBar(
@@ -57,7 +48,8 @@ fun ThumbnailGridScreen(viewModel: ThumbnailViewModel = viewModel()) {
             onSearch = { query -> viewModel.searchThumbnails(query) }
         )
 
-        if(thumbnails != null && thumbnails?.items!!.size > 0) {
+
+        if (thumbnails != null && thumbnails?.items!!.isNotEmpty()) {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(3), // Adjust to the number of items per row
                 modifier = Modifier.fillMaxSize()
@@ -96,24 +88,13 @@ fun SearchBar(query: String, onQueryChanged: (String) -> Unit, onSearch: (String
 @Composable
 fun ThumbnailItem(thumbnail: Items) {
 
-    var context = LocalContext.current
-
-
     Card(
         modifier = Modifier.padding(8.dp),
         shape = RoundedCornerShape(8.dp),
-
     ) {
         Log.d("Images>>", "ThumbnailItem: ${thumbnail.link}")
         Column {
-            var imageUrl = thumbnail.link
-            LaunchedEffect(imageUrl) {
-                // Pre-load the image into the cache
-                val request = ImageRequest.Builder(context)
-                    .data(imageUrl)
-                    .build()
-                context.imageLoader.enqueue(request)
-            }
+            var imageUrl = thumbnail.media.m
 
             AsyncImage(
                 model = imageUrl,

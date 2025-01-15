@@ -12,7 +12,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ThumbnailViewModel @Inject constructor(private val getThumbnailsUseCase: GetThumbnailsUseCase) : ViewModel() {
+class ThumbnailViewModel @Inject constructor(private val getThumbnailsUseCase: GetThumbnailsUseCase) :
+    ViewModel() {
 
     private val _thumbnails = MutableStateFlow<Thumbnail?>(null)
     val thumbnails: StateFlow<Thumbnail?> = _thumbnails
@@ -33,6 +34,6 @@ class ThumbnailViewModel @Inject constructor(private val getThumbnailsUseCase: G
     init {
         // Initial loading with empty query or default query
         Log.d("Search>>", _searchQuery.value)
-        searchThumbnails( _searchQuery.value )
+        searchThumbnails(_searchQuery.value)
     }
 }

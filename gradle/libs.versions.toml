@@ -65,6 +65,7 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "adapterR
 retrofit2-adapter-rxjava3 = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "adapterRxjava3Version" }
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "imageLoad" }
 
 
 [plugins]
